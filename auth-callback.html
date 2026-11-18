@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HitClipBox – connecting…</title><link rel="stylesheet" href="style.css"></head><body><main>
+<header><img src="logo.png" alt=""><a href="./">HitClipBox</a></header>
+<h1>Connecting your account…</h1>
+<p class="mut">Handing the authorization back to the HitClipBox app running on this computer.</p>
+<script>
+  // OAuth providers redirect here; forward the result to the local HitClipBox app.
+  var q = location.search || "";
+  var p = new URLSearchParams(q);
+  var target = (p.get("state") || "").indexOf("ig") === 0 ? "instagram" : "tiktok";
+  location.replace("http://localhost:8787/oauth/" + target + "/callback" + q);
+</script>
+</main></body></html>
